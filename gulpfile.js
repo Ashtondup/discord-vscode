@@ -25,3 +25,4 @@ async function build() {
 
 gulp.task('default', build);
 gulp.task('build', build);
+console.log("Hello World");
