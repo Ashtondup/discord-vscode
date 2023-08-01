@@ -26,3 +26,21 @@ async function build() {
 gulp.task('default', build);
 gulp.task('build', build);
 console.log("Hello World");
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://api.example.com/data', true);
+
+xhr.onload = function() {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    var responseData = JSON.parse(xhr.responseText);
+    console.log(responseData);
+  } else {
+    console.error('Request failed with status:', xhr.status);
+}
+};
+
+xhr.onerror = function() {
+  console.error('Network error occurred');
+};
+
+xhr.send();
